@@ -1,0 +1,21 @@
+version: '3.7'
+services:
+  mongodb_container:
+    image: mongo:latest
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: rootpassword
+    volumes:
+      - "C:\\ProgramData\\Docker\\volumes\\accenture-desafio_dbdata"
+    ports:
+      - 27017:27017
+  keycloak_accenture:
+    container_name: keycloak_accenture
+    image: jboss/keycloak:9.0.2
+    environment:
+      KEYCLOAK_USER: admin
+      KEYCLOAK_PASSWORD: admin
+    ports:
+      - "8180:8080"
+volumes:
+  accenture-desafio_dbdata:
